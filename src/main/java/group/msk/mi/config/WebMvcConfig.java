@@ -26,7 +26,8 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
      */
     @Override
     protected void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        System.out.println("字符编码资源配置成功");
+        //TODO 日志修改
+        System.out.println("-----> 字符编码资源配置成功");
         converters.forEach(converter -> {
             if (converter instanceof StringHttpMessageConverter){
                 ((StringHttpMessageConverter) converter).setDefaultCharset(Charset.forName("UTF-8"));
