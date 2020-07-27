@@ -1,9 +1,8 @@
-package group.msk.wanmi.core.util;
+package group.msk.mi.core.util;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.NoSuchMessageException;
-import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import java.util.Locale;

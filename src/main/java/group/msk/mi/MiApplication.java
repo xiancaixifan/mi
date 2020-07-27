@@ -1,4 +1,4 @@
-package group.msk.wanmi;
+package group.msk.mi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

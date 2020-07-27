@@ -1,4 +1,4 @@
-package group.msk.wanmi.core.common;
+package group.msk.mi.core.common;
 
 /**
  * @Author 吕衡

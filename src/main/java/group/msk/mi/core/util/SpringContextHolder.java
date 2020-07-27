@@ -1,7 +1,6 @@
-package group.msk.wanmi.core.util;
+package group.msk.mi.core.util;
 
 import org.springframework.beans.BeansException;
-import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;

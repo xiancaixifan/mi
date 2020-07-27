@@ -1,7 +1,7 @@
-package group.msk.wanmi.core.base;
+package group.msk.mi.core.base;
 
-import group.msk.wanmi.core.common.CommonErrorCode;
-import group.msk.wanmi.core.util.MessageSourceUtil;
+import group.msk.mi.core.common.CommonErrorCode;
+import group.msk.mi.core.util.MessageSourceUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.springframework.context.i18n.LocaleContextHolder;
