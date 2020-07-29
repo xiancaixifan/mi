@@ -1,7 +1,6 @@
 package group.msk.mi.core.util;
 
 import org.springframework.context.MessageSource;
-import org.springframework.context.MessageSourceResolvable;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.util.Assert;
 
@@ -50,17 +49,6 @@ public class MessageSourceUtil {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public static String getMessage(MessageSourceResolvable resolvable, Locale locale) {
-        Assert.notNull(messageSource, "消息资源工具类未初始化到上下文");
-        try {
-            return messageSource.getMessage(resolvable, locale);
-        } catch (NoSuchMessageException e) {
-            e.printStackTrace();
-            return null;
-        }
-
     }
 
 }
