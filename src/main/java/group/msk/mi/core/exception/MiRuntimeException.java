@@ -8,12 +8,13 @@ import group.msk.mi.core.common.CommonErrorCode;
  * @Desc 全局统一异常
  */
 public class MiRuntimeException extends RuntimeException {
+    //状态码
     private String errorCode;
-
+    //返回数据
     private Object data;
-
-    private String result = "fail";
-
+    //自定义错误消息
+    private String resultInfo = "fail";
+    //自定义的错误消息信息,填充{}
     private Object[] params;
 
 
@@ -41,9 +42,22 @@ public class MiRuntimeException extends RuntimeException {
      * @param errorCode
      * @param result
      */
-    public MiRuntimeException(String errorCode, String result) {
+    public MiRuntimeException(String errorCode, String resultInfo) {
         this.errorCode = errorCode;
-        this.result = result;
+        this.resultInfo = resultInfo;
+    }
+
+
+    /**
+     * 主动抛出,用于业务错误代码,自定义异常,自定义返回消息
+     * (建议准守规范,异常定义于配置文件中)
+     * @param errorCode
+     * @param result
+     */
+    public MiRuntimeException(String errorCode, String resultInfo,Throwable cause) {
+        super(cause);
+        this.errorCode = errorCode;
+        this.resultInfo = resultInfo;
     }
 
 
@@ -68,5 +82,21 @@ public class MiRuntimeException extends RuntimeException {
     public MiRuntimeException(String errorCode, Throwable cause) {
         super(cause);
         this.errorCode = errorCode;
+    }
+
+    public String getErrorCode() {
+        return errorCode;
+    }
+
+    public String getResultInfo() {
+        return resultInfo;
+    }
+
+    public Object[] getParams() {
+        return params;
+    }
+
+    public Object getData() {
+        return data;
     }
 }

@@ -19,6 +19,11 @@ public class MessageSourceUtil {
         messageSource = SpringContextHolder.getBean(MessageSource.class);
     }
 
+
+    public static String getMessage(String code) {
+        return messageSource.getMessage(code, null, null, Locale.CHINA);
+    }
+
     /**
      * 获取MessageSource中的消息
      * @param code

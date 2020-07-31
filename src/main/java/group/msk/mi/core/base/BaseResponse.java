@@ -63,6 +63,18 @@ public class BaseResponse<T> implements Serializable {
         this.message = MessageSourceUtil.getMessage(code, args, LocaleContextHolder.getLocale());
     }
 
+    /**
+     * 用于返回异常链的消息
+     * @param code
+     * @param message
+     * @param errorData
+     */
+    public BaseResponse(String code, String message, String errorData) {
+        this.code = code;
+        this.message = message;
+        this.errorData = errorData;
+    }
+
 
     public BaseResponse(String code, String message, Object errorData, T context) {
         this.code = code;
@@ -78,7 +90,7 @@ public class BaseResponse<T> implements Serializable {
      * @return
      */
     public static <T> BaseResponse<T> success(T context) {
-        return new BaseResponse<>(CommonErrorCode.SUCCESSFUL, null, null, context);
+        return new BaseResponse<>(CommonErrorCode.SUCCESSFUL, MessageSourceUtil.getMessage(CommonErrorCode.SUCCESSFUL), null, context);
     }
 
 
