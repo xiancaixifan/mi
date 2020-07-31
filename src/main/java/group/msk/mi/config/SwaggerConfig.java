@@ -50,10 +50,10 @@ public class SwaggerConfig {
     @Bean
     public Docket controllerApi(){
         logger.info(CommonLogFormat.START_LOADING_FORMAT, ClassUtil.getClassName(this.getClass(),false),"Swagger配置类");
-        return new Docket(DocumentationType.SWAGGER_2)
+        return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("group.msk.mi"))
+                .apis(RequestHandlerSelectors.basePackage("group.msk.mi.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

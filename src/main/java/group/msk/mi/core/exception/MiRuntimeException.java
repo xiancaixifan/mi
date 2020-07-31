@@ -26,6 +26,10 @@ public class MiRuntimeException extends RuntimeException {
         this.errorCode = CommonCoreErrorCode.FAILED;
     }
 
+    public MiRuntimeException(Throwable cause) {
+        super(cause);
+        this.errorCode = CommonCoreErrorCode.FAILED;
+    }
 
     /**
      * 主动抛出,用于业务错误代码,自定义异常
@@ -83,6 +87,8 @@ public class MiRuntimeException extends RuntimeException {
         super(cause);
         this.errorCode = errorCode;
     }
+
+
 
     public String getErrorCode() {
         return errorCode;

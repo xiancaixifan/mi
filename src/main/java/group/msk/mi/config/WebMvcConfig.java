@@ -4,9 +4,9 @@ import cn.hutool.core.util.ClassUtil;
 import group.msk.mi.common.CommonLogFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 import java.nio.charset.Charset;
@@ -18,7 +18,7 @@ import java.util.List;
  * @Desc 请求适配器, 用于过滤和映射服务请求
  */
 
-@Configuration
+//@Configuration 还不懂是啥意思,懂了再用,不懂不用
 public class WebMvcConfig extends WebMvcConfigurationSupport {
     Logger logger = LoggerFactory.getLogger(this.getClass());
     /**
@@ -39,4 +39,13 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         });
     }
 
+    /**
+     * 发现如果继承了WebMvcConfigurationSupport，则在yml中配置的相关内容会失效。 需要重新指定静态资源
+     *
+     * @param registry
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        super.addResourceHandlers(registry);
+    }
 }
