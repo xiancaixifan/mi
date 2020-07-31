@@ -5,7 +5,7 @@ package group.msk.mi.core.common;
  * @Create 2020/7/25 - 15:41
  * @Desc 共用异常静态常量定义
  */
-public class CommonErrorCode {
+public class CommonCoreErrorCode {
     /**
      * 操作成功
      */

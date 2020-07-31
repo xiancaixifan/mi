@@ -1,5 +1,9 @@
 package group.msk.mi.config;
 
+import cn.hutool.core.util.ClassUtil;
+import group.msk.mi.common.CommonLogFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +23,8 @@ import springfox.documentation.spring.web.plugins.Docket;
  */
 @Configuration
 public class SwaggerConfig {
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Value("${swagger.contact.name}")
     String contactName;
 
@@ -43,8 +49,7 @@ public class SwaggerConfig {
 
     @Bean
     public Docket controllerApi(){
-        //TODO log --配置类启动需要装配日志--
-        System.out.println("-----> 加载swagger配置类");
+        logger.info(CommonLogFormat.START_LOADING_FORMAT, ClassUtil.getClassName(this.getClass(),false),"Swagger配置类");
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
@@ -58,7 +63,6 @@ public class SwaggerConfig {
      * @return
      */
     private ApiInfo apiInfo(){
-        System.out.println("-----> 加载swagger描述");
         return new ApiInfoBuilder()
                 .title(title)
                 .description(description)

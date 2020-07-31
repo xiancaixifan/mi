@@ -1,7 +1,7 @@
 package group.msk.mi.controller;
 
 import group.msk.mi.core.base.BaseResponse;
-import group.msk.mi.core.common.CommonErrorCode;
+import group.msk.mi.core.common.CommonCoreErrorCode;
 import group.msk.mi.core.exception.MiRuntimeException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -40,7 +40,7 @@ public class TestController {
             throw new NullPointerException();
         } catch (Exception exception) {
 
-            throw new MiRuntimeException(CommonErrorCode.SUCCESSFUL,"自定义消息",exception);
+            throw new MiRuntimeException(CommonCoreErrorCode.SUCCESSFUL,"自定义消息",exception);
         }
     }
 }

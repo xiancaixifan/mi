@@ -1,5 +1,9 @@
 package group.msk.mi.config;
 
+import cn.hutool.core.util.ClassUtil;
+import group.msk.mi.common.CommonLogFormat;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
@@ -16,6 +20,7 @@ import java.util.List;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
+    Logger logger = LoggerFactory.getLogger(this.getClass());
     /**
      * 建议使用该方法进行HttpMessageConverters的修改，此时的converters已经是Spring初始化过的
      * 因为加入了WebMvcConfigure，导致Spring的HttpMessageConverters中的String转换类默认使用ISO-8859-1编码
@@ -26,8 +31,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
      */
     @Override
     protected void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        //TODO 日志修改
-        System.out.println("-----> 字符编码资源配置成功");
+        logger.info(CommonLogFormat.START_LOADING_FORMAT, ClassUtil.getClassName(this.getClass(),false),"请求映射配置类");
         converters.forEach(converter -> {
             if (converter instanceof StringHttpMessageConverter){
                 ((StringHttpMessageConverter) converter).setDefaultCharset(Charset.forName("UTF-8"));

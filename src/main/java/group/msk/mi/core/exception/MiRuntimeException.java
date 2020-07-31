@@ -1,6 +1,6 @@
 package group.msk.mi.core.exception;
 
-import group.msk.mi.core.common.CommonErrorCode;
+import group.msk.mi.core.common.CommonCoreErrorCode;
 
 /**
  * @Author 吕衡
@@ -23,7 +23,7 @@ public class MiRuntimeException extends RuntimeException {
      */
     public MiRuntimeException() {
         super();
-        this.errorCode = CommonErrorCode.FAILED;
+        this.errorCode = CommonCoreErrorCode.FAILED;
     }
 
 

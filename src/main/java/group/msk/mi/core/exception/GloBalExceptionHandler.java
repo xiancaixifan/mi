@@ -3,7 +3,7 @@ package group.msk.mi.core.exception;
 import cn.hutool.core.exceptions.ExceptionUtil;
 import cn.hutool.core.util.StrUtil;
 import group.msk.mi.core.base.BaseResponse;
-import group.msk.mi.core.common.CommonLogFormat;
+import group.msk.mi.core.common.CommonCoreLogFormat;
 import group.msk.mi.core.util.MessageSourceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -63,8 +63,8 @@ public class GloBalExceptionHandler {
             }
         }
 
-        codeMessage = StrUtil.isNotBlank(this.getMessage(errorCode, exception.getParams())) ? this.getMessage(errorCode, exception.getParams()) : resultInfo;
-        logger.error(CommonLogFormat.COMMON_ERROR_FORMAT, errorCode, codeMessage, exception);
+        codeMessage = StrUtil.isNotBlank(resultInfo) ? resultInfo: this.getMessage(errorCode, exception.getParams());
+        logger.error(CommonCoreLogFormat.COMMON_ERROR_FORMAT, errorCode, codeMessage, exception);
         return new BaseResponse<>(errorCode, codeMessage, detailMessage, exception.getData());
 
     }

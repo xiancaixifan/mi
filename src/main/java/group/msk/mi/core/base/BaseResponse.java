@@ -1,6 +1,6 @@
 package group.msk.mi.core.base;
 
-import group.msk.mi.core.common.CommonErrorCode;
+import group.msk.mi.core.common.CommonCoreErrorCode;
 import group.msk.mi.core.util.MessageSourceUtil;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -21,7 +21,7 @@ public class BaseResponse<T> implements Serializable {
      * @return
      */
     public  static BaseResponse SUCCESSFUL(){
-        return new BaseResponse(CommonErrorCode.SUCCESSFUL);
+        return new BaseResponse(CommonCoreErrorCode.SUCCESSFUL);
     }
 
     /**
@@ -29,7 +29,7 @@ public class BaseResponse<T> implements Serializable {
      * @return
      */
     public static BaseResponse FAILED() {
-        return new BaseResponse(CommonErrorCode.FAILED);
+        return new BaseResponse(CommonCoreErrorCode.FAILED);
     }
 
 
@@ -90,7 +90,7 @@ public class BaseResponse<T> implements Serializable {
      * @return
      */
     public static <T> BaseResponse<T> success(T context) {
-        return new BaseResponse<>(CommonErrorCode.SUCCESSFUL, MessageSourceUtil.getMessage(CommonErrorCode.SUCCESSFUL), null, context);
+        return new BaseResponse<>(CommonCoreErrorCode.SUCCESSFUL, MessageSourceUtil.getMessage(CommonCoreErrorCode.SUCCESSFUL), null, context);
     }
 
 
