@@ -5,6 +5,8 @@ import group.msk.mi.core.base.BaseResponse;
 import group.msk.mi.core.exception.MiRuntimeException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,9 @@ import java.util.Locale;
 @RestController
 @RequestMapping("/test")
 public class TestController {
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private MessageSource messageSource;
 

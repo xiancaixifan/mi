@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * @Author 吕衡
  * @Create 2020/7/31 - 19:18
- * @Desc TODO
+ * @Desc 输出日志,请求,参数,返回值
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD})
