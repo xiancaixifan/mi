@@ -1,5 +1,7 @@
 package group.msk.mi.core.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.NoSuchMessageException;
 import org.springframework.util.Assert;
@@ -15,8 +17,15 @@ import java.util.Locale;
 public class MessageSourceUtil {
     private static MessageSource messageSource;
 
+    private static Logger logger = LoggerFactory.getLogger(MessageSourceUtil.class);
+
     static {
-        messageSource = SpringContextHolder.getBean(MessageSource.class);
+        logger.info("[工具类加载]...[工具类信息]:{}]", MessageSourceUtil.class.getName());
+        init(messageSource = SpringContextHolder.getBean(MessageSource.class));
+    }
+
+    public static void init(MessageSource messageSource) {
+        MessageSourceUtil.messageSource = messageSource;
     }
 
 
